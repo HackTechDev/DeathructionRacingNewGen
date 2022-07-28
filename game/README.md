@@ -1,18 +1,34 @@
-# Racing car
+### Phaser JS 3 RPG
 
-![game preview](http://tinycode.ru/pics/phaser3-racing-car-preview.png)
 
-Нужно сбить все конусы, отталкивая от них людей, потому что эти вредители поднимают их.
+#### Installation du serveur
 
-## credits
+- Installation du module du serveur :
 
-Графику взял оттуда:
+```
+$ npm init -y
+```
 
-* [racing-pack](https://opengameart.org/content/racing-pack)
-* [ui-pack-rpg-extension](https://opengameart.org/content/ui-pack-rpg-extension)
+- Lancement du serveur :
 
-## links
+```
+npm start 
+```
 
-* [Запись в блоге](http://tinycode.ru/phaser3-racing-car.html)
-* [Демо](http://tinycode.ru/games/phaser3-racing-car/)
+- Adresse internet :
 
+```
+http://localhost:8000
+```
+
+
+##### Music
+
+* Surrounded by the Enemy par Videvo
+<https://www.videvo.net/royalty-free-music-track/surrounded-by-the-enemy/232185/>
+
+
+##### Website
+
+* Michael Hadley
+<https://medium.com/@michaelwesthadley>
