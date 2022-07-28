@@ -1,0 +1,5 @@
+game/node_modules/*
+syncGame2Prod.sh
+game/build/project.bundle.js
+game/build/racing-car-game.js  
+game/build/vendor-libs.js
