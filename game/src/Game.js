@@ -112,6 +112,8 @@ class Man {
       this.body.setTexture('blood');
       this.body.setStatic(true);
       this.isDead = true;
+      this.body.enable = false;
+      this.body.setCollisionCategory(0);
     }
 
 };
@@ -155,14 +157,13 @@ class Game extends Phaser.Scene {
 
 
         this.createTexture();
-        this.createCar();
         this.createTires();
         this.createMen();
         this.createCones();
         this.createCollisions();
 
         this.createWall();
-
+        this.createCar();
         this.createInput();
     }
 
