@@ -108,7 +108,6 @@ class Man {
 
 
     dead () {
-      console.log("Dead!");
       this.body.setTexture('blood');
       this.body.setStatic(true);
       this.isDead = true;
@@ -150,11 +149,26 @@ class Cone {
 class Game extends Phaser.Scene {
     constructor() {
         super({key: 'Game'});
+
+
+      var chronoText;
+      var monTimer;
+      var chrono;
+
+
     }
 
     create() {
-        this.setBounds();
 
+      this.monTimer = this.time.addEvent({
+          delay: 100,
+          callback: this.compteUneSeconde,
+          callbackScope: this,
+          loop: true
+      });
+
+       this.chrono = 0;
+        this.setBounds();
 
         this.createTexture();
         this.createTires();
@@ -164,8 +178,22 @@ class Game extends Phaser.Scene {
 
         this.createWall();
         this.createCar();
+
+        this.chronoText = this.add.text(50, 16, "Chrono: 0", {
+          fontSize: "24px",
+          fill: "#FFFFFF" //Couleur de l'écriture
+        });
+        this.chronoText.setScrollFactor(0);
+
+
         this.createInput();
     }
+
+     compteUneSeconde() {
+        this.chrono = this.chrono + 1; // on incremente le chronometre d'une unite
+        this.chronoText.setText("Chrono: " + this.chrono); // mise à jour de l'affichage
+      }
+
 
     setBounds() {
         this.matter.world.setBounds(0, 0, 1200, 700);
@@ -238,20 +266,13 @@ class Game extends Phaser.Scene {
                 }
                 
 
-
-
             });
 
-            if (this.cones.filter(cone => cone.isUp).length === 0) {
-                this.scene.start('GameOver');
-            }
-          
+
             if (this.men.filter(man => man.isDead).length === 10) {
-                this.scene.start('GameOver');
+                this.scene.start('GameOver', {chrono: this.chrono});
             }
  
-
-            console.log(this.men.filter(man => man.isDead).length);
 
         });
     }
